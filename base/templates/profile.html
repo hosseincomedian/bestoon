@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+{% block content %}
+
+
+
+
+<div id="sidebar">
+    <div id="login" class="boxed">
+        <div class="title" style="text-align: center;">
+            افزودن خرج
+        </div>
+        <div class="content">
+            <form id="form1" method="post" action="{% url 'home' %}">
+                {% csrf_token %}
+                <fieldset>
+                <legend>Sign-In</legend>
+                <label for="inputtext1">میزان:</label>
+                <input id="inputtext1" type="text" name="mizan" value="" / required>
+                <label for="inputtext1">توضیح:</label>
+                <input id="inputtext1" type="text" name="tozih" value="" />
+                <input id="inputsubmit1" type="submit" name="inputsubmit1" value="ثبت خرج" />
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="welcome" class="post">
+        
+        
+        
+        <div class="story">
+            <table style="width:100%">
+                <tr>
+                  <th>توضیح</th>
+                  <th>روز</th>
+                  <th>میزان</th>
+                  <th>دارایی</th>
+                </tr>
+            
+           
+                {% for story in dakhl %}
+                <tr>
+                  <td>{{ story.tozih }}</td>
+                  <td>{{ story.date }}</td>
+                  <td>{{ story.mizan }}</td>
+                  <td>{{ story.darayi}}</td>
+                </tr>
+                {% endfor %}
+              </table>  
+            
+
+        </div>
+    </div>
+    <div id="example" class="post">
+        
+    </div>
+</div>
+{% endblock %}

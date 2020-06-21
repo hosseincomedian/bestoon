@@ -1,0 +1,42 @@
+{% extends "index.html" %}
+{% block content %}
+
+
+
+
+<div id="sidebar">
+    <div id="login" class="boxed">
+        <div class="title" style="text-align: center;">
+            افزودن خرج
+        </div>
+        <div class="content">
+
+                <fieldset>
+
+                    {% if user.is_authenticated  %}
+                        <button class="red-text"><a class="btn" href=""> {{request.user}}  </a> <button>
+                        <button><a href="{% url 'logout' %}">خروج</a></li>
+                        {% else %}
+                        <button><a href="{% url 'sign_in' %}">ثبت نام</a></button>
+                        <button><a href="{% url 'login' %}">ورود</a></button>
+                    {% endif %}
+                    </fieldset>
+
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="welcome" class="post">
+        
+        
+        
+        <div class="story">
+            <p style="font-size:20px;"> .بیا و پولاتو با حساب کتاب خرج کن</p>
+
+        </div>
+    </div>
+    <div id="example" class="post">
+        
+    </div>
+</div>
+{% endblock %}

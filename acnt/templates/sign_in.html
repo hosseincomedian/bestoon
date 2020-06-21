@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block content %}
+
+
+
+
+<div id="sidebar">
+    <div id="login" class="boxed">
+        <div class="title" style="text-align: center;">
+            sign in
+        </div>
+        <div class="content">
+            <form id="form1" method="post" action="{% url 'sign_in' %}">
+                {% csrf_token %}
+                <fieldset>
+                <legend>Sign-In</legend>
+                <label for="inputtext1">username:</label>
+                <input id="inputtext1" type="text" name="username" value="" / required>
+                <label for="inputtext1">password:</label>
+                <input id="inputtext1" type="password" name="password" value="" / required>
+                <input id="inputsubmit1" type="submit" name="inputsubmit1" value="sign in" / >
+                </fieldset>
+            </form>
+            {{error}}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
