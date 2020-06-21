@@ -22,4 +22,5 @@ urlpatterns = [
     path('log',views.log,name='login'),
     path('logout',views.logout_view,name='logout'),
     path('Profile',views.profile,name='profile'),
+    path('Profile/add',views.add,name='add')
 ]

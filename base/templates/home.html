@@ -14,7 +14,7 @@
                 <fieldset>
 
                     {% if user.is_authenticated  %}
-                        <button class="red-text"><a class="btn" href=""> {{request.user}}  </a> <button>
+                        <button class="red-text"><a class="btn" href="{% url 'profile' %}"> {{request.user}}  </a> <button>
                         <button><a href="{% url 'logout' %}">خروج</a></li>
                         {% else %}
                         <button><a href="{% url 'sign_in' %}">ثبت نام</a></button>
