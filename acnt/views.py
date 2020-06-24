@@ -43,6 +43,21 @@ def profile(request):
             for i in range(1,len(a)):
                 if a[i].date == a[i-1].date:
                     a[i].date=""
+                if a[i].darayi == a[i-1].darayi:
+                    a[i-1].darayi = ""
+                if a[i].mizan_dolar == a[i-1].mizan_dolar:
+                    a[i-1].mizan_dolar = ""
+            for i in range(0,len(a)):
+                a[i].date=str(a[i].date)
+                a[i].tozih=str(a[i].tozih)
+                a[i].tozih=a[i].tozih.replace(' ', "_")
+                if a[i].mizan==0:
+                    a[i].mizan=""
+                if a[i].dolar==0:
+                    a[i].dolar=""
+                if a[i].tozih=="":
+                    a[i].tozih="-"
+                
 
             return render(request,'profile.html',{'dakhl':a})   
         else:
@@ -53,7 +68,21 @@ def profile(request):
             for i in range(1,len(a)):
                 if a[i].date == a[i-1].date:
                     a[i].date=""
-
+                if a[i].darayi == a[i-1].darayi:
+                    a[i-1].darayi = ""
+                if a[i].mizan_dolar == a[i-1].mizan_dolar:
+                    a[i-1].mizan_dolar = ""
+            for i in range(0,len(a)):
+                a[i].date=str(a[i].date)
+                a[i].tozih=str(a[i].tozih)
+                a[i].tozih=a[i].tozih.replace(' ', "_")
+                if a[i].tozih=="":
+                    a[i].tozih="-"
+                if a[i].mizan==0:
+                    a[i].mizan=""
+                if a[i].dolar==0:
+                    a[i].dolar="" 
+            
             return render(request,'profile.html',{'dakhl':a})
         else:
             return render(request,'login.html')
@@ -63,14 +92,19 @@ def logout_view(request):
     return render (request,'home.html')
 
 def add(request):
+    if (request.user.is_authenticated) ==0:
+         return render(request,'login.html')
     if request.method == "POST":
         mizan=int(request.POST['mizan'])
+        dolar=int(request.POST['dolar'])
         tozih=request.POST['tozih']
         a=dakhl.objects.all()
-        fe=codee=int(a[len(a)-1].darayi)
+        fe=int(a[len(a)-1].darayi)
+        do=int(a[len(a)-1].mizan_dolar)
         darayi=fe+mizan
+        mizan_dolar = do+dolar
         a=User().dakhl_set.all()
-        dakhl.objects.create(user=request.user,mizan=mizan,darayi=darayi,tozih=tozih)
+        dakhl.objects.create(user=request.user,mizan=mizan,darayi=darayi,tozih=tozih,dolar=dolar,mizan_dolar=mizan_dolar)
         requestt = HttpRequest()
         return HttpResponseRedirect('/account/Profile')
 

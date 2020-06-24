@@ -160,7 +160,7 @@ img.right {
 
 .post .story {
 	clear: both;
-	padding: 72px;
+	padding: 90px;
 	background: url(img5.gif) repeat-x;
 }
 
@@ -214,7 +214,7 @@ img.right {
 
 #content {
 	float: right;
-	width: 420px;
+	width: 450px;
 	padding: 0 20px;
 	background: url(img4.gif) no-repeat;
 }
@@ -223,7 +223,7 @@ img.right {
 
 #sidebar {
 	float: left;
-	width: 200px;
+	width: 170px;
 	padding: 0 20px;
 	background: url(img3.gif) no-repeat right top;
 }
@@ -336,4 +336,19 @@ img.right {
 /* Footer > Links */
 
 #links {
+}
+
+td{
+	padding-left: 3px;
+padding-right: 6px;
+text-align: center;
+}
+ 
+#day{
+	font: normal 15px Georgia, "Times New Roman", Times, serif;
+	padding-inline: 50px;
+} 
+
+#green{
+	color:green;
 }

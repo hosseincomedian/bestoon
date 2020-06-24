@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 class dakhl(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
     mizan=models.IntegerField()
+    mizan_dolar=models.IntegerField(null=True)
+    dolar=models.BigIntegerField(null=True)
     date = models.DateField(auto_now_add=True)
     darayi = models.BigIntegerField()
     tozih = models.CharField(max_length=500, blank=True)

@@ -16,6 +16,8 @@
                 <legend>Sign-In</legend>
                 <label for="inputtext1">میزان:</label>
                 <input id="inputtext1" type="text" name="mizan" value="" / required>
+                <label for="inputtext1">دولار$:</label>
+                <input id="inputtext1" type="text" name="dolar" value="" / required>
                 <label for="inputtext1">توضیح:</label>
                 <input id="inputtext1" type="text" name="tozih" value="" />
                 <input id="inputsubmit1" type="submit" name="inputsubmit1" value="ثبت خرج" />
@@ -34,17 +36,23 @@
                 <tr>
                   <th>توضیح</th>
                   <th>روز</th>
+                  <th>$میزان</th>
                   <th>میزان</th>
+                  <th>$دارایی</th>
                   <th>دارایی</th>
+                  
                 </tr>
             
            
                 {% for story in dakhl %}
                 <tr>
                   <td>{{ story.tozih }}</td>
-                  <td>{{ story.date }}</td>
+                  <td id="day">{{ story.date }}</td>
+                  <td>{{ story.dolar }}</td>
                   <td>{{ story.mizan }}</td>
-                  <td>{{ story.darayi}}</td>
+                  <td id=green>{{ story.mizan_dolar}}</td>
+                  <td id=green>{{ story.darayi}}</td>
+
                 </tr>
                 {% endfor %}
               </table>  
