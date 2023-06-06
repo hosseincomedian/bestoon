@@ -99,8 +99,10 @@ def add(request):
         dolar=int(request.POST['dolar'])
         tozih=request.POST['tozih']
         a=dakhl.objects.all()
-        fe=int(a[len(a)-1].darayi)
-        do=int(a[len(a)-1].mizan_dolar)
+        fe, do = 0, 0
+        if len(a)>0:
+            fe=int(a[len(a)-1].darayi)
+            do=int(a[len(a)-1].mizan_dolar)
         darayi=fe+mizan
         mizan_dolar = do+dolar
         a=User().dakhl_set.all()
